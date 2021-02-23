@@ -1,0 +1,39 @@
+data = []
+choice = 'random'
+
+def line():
+    print('---------------------------')
+
+def show_menu():
+    line()
+    print('MENU')
+    line()
+    print('1. Add courses')
+    print('2. Remove or Unenroll a course')
+    print('3. View courses')
+    print('4. Exit')
+    line()
+    choice = input('Enter your choice: ')
+    return choice
+
+while choice != '4':
+    choice = show_menu()
+    if choice == '1':
+        item = input('Add course name to enroll ')
+        data.append(item)
+        print('Course ', item, 'added')
+    elif choice == '2':
+        item = input('which course do you want to unenroll? ')
+        if item in data:
+            data.remove(item)
+            print('You have been unenroll from the course', item)
+        else:
+            print('Could not find the course name', item)
+    elif choice == '3':
+        print('List of my courses:')
+        for item in data:
+            print(item)
+    elif choice == '4':
+        print('Goodbye!')
+    else:
+        print('Please enter one of 1, 2, 3 or 4')
